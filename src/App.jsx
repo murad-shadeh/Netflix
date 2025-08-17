@@ -11,8 +11,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/fav" element={<FavList />} />
       </Routes>
-
-      {/* <Home /> */}
     </div>
   );
 };
