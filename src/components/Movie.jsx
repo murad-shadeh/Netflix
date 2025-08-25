@@ -34,7 +34,7 @@ const Movie = ({ data, onFav = false }) => {
             </>
           ) : (
             <Button variant="primary" onClick={handleClick}>
-              Add to Favorite
+              Add to Favorites
             </Button>
           )}
         </Card.Body>
