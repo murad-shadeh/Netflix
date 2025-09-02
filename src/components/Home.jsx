@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 import MovieList from "./MovieList";
 import axios from "axios";
-import { Row } from "react-bootstrap";
-import NavElement from "./Navbar";
+import { Navbar, Row } from "react-bootstrap";
+import NavBar from "./NavBar";
 const Home = () => {
   const [printingData, setPrinitngData] = useState([]);
   // const [singleMovie, setSingleMovie] = useState({});
@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <NavElement />
+      <NavBar />
       <Row>
         {/* {printingData.length &&
           printingData.map((dataItem) => (
