@@ -21,7 +21,7 @@ const Movie = ({ data, onFav = false }) => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card className="h-100">
         <img src={img} alt={data.title} />
         <Card.Body>
           <Card.Title> {data.title}</Card.Title>
