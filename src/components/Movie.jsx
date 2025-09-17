@@ -21,9 +21,10 @@ const Movie = ({ data, onFav = false }) => {
 
   return (
     <>
+      {/* make the card take 100% heigh of its parent column */}
       <Card className="h-100">
         <img src={img} alt={data.title} />
-        <Card.Body>
+        <Card.Body className="d-flex flex-column">
           <Card.Title> {data.title}</Card.Title>
           <Card.Text>{data.overview}</Card.Text>
 
@@ -33,9 +34,11 @@ const Movie = ({ data, onFav = false }) => {
               <Button variant="danger">Delete</Button>
             </>
           ) : (
-            <Button variant="primary" onClick={handleClick}>
-              Add to Favorites
-            </Button>
+            <div className="mt-auto d-flex justify-content-center">
+              <Button variant="primary" onClick={handleClick}>
+                Add to Favorites
+              </Button>
+            </div>
           )}
         </Card.Body>
       </Card>

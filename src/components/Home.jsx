@@ -24,7 +24,8 @@ const Home = () => {
   return (
     <Fragment>
       <NavBar />
-      <Container fluid>
+      {/* maintain a fixed container */}
+      <Container fluid className="mt-4">
         <MovieList data={printingData} />
       </Container>
     </Fragment>

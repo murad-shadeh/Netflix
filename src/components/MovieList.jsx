@@ -21,6 +21,8 @@ const MovieList = ({ data, setSingleMovie }) => {
 
   return (
     <Row>
+      {/* Row automatically applies negative margins */}
+      {/* Cols balance that with padding to fit the content properly*/}
       {data.map((dataItem) => (
         <Col
           key={dataItem.id}
