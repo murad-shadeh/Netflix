@@ -60,6 +60,7 @@ export default function FavList() {
                   <Button
                     variant="danger"
                     onClick={() => handleDelete(movie.id)}
+                    className="me-2"
                   >
                     Delete
                   </Button>
