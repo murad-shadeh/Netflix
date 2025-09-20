@@ -34,23 +34,31 @@ const ModalMovie = ({ show, data, handleClose }) => {
       </Modal.Header>
       <Modal.Body>
         {/* Woohoo, you are reading this text in a modal! */}
-        <img src={img} alt={data.title} />
+        <img
+          src={img}
+          alt={data.title}
+          className="w-100 mb-3 rounded"
+          style={{ objectFit: "cover" }}
+        />
         <form onSubmit={(e) => submitHandler(e)}>
-          <div className="comment-div">
-            <label htmlFor="comment" className="space">
-              {" "}
-              Add a comment{" "}
+          <div className="mb-3">
+            <label htmlFor="comment" className="form-label">
+              Add a comment
             </label>
-            <input type="text" id="comment" className="space" required />
+            <input type="text" id="comment" className="form-control" required />
           </div>
-          <Button variant="secondary" onClick={handleClose} className="btn">
+          <Button
+            variant="secondary"
+            onClick={handleClose}
+            className="me-2 mt-2"
+          >
             Close
           </Button>
           <Button
             variant="primary"
             onClick={handleClick}
             type="submit"
-            className="btn"
+            className="mt-2"
           >
             Save data
           </Button>
