@@ -28,17 +28,27 @@ const ModalMovie = ({ show, data, handleClose }) => {
     handleClose();
   };
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal
+      show={show}
+      onHide={handleClose}
+      centered
+      size="md" //  to be adjusted for later ... "sm", "md", "lg", or "xl"
+      dialogClassName="custom-modal"
+    >
       <Modal.Header closeButton>
         <Modal.Title>{data.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {/* Woohoo, you are reading this text in a modal! */}
         <img
           src={img}
           alt={data.title}
-          className="w-100 mb-3 rounded"
-          style={{ objectFit: "cover" }}
+          className="img-fluid mb-3 rounded"
+          style={{
+            maxHeight: "350px",
+            objectFit: "contain",
+            width: "100%",
+            backgroundColor: "#000",
+          }}
         />
         <form onSubmit={(e) => submitHandler(e)}>
           <div className="mb-3">
@@ -47,24 +57,16 @@ const ModalMovie = ({ show, data, handleClose }) => {
             </label>
             <input type="text" id="comment" className="form-control" required />
           </div>
-          <Button
-            variant="secondary"
-            onClick={handleClose}
-            className="me-2 mt-2"
-          >
-            Close
-          </Button>
-          <Button
-            variant="primary"
-            onClick={handleClick}
-            type="submit"
-            className="mt-2"
-          >
-            Save data
-          </Button>
+          <div className="d-flex justify-content-end gap-2">
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClick} type="submit">
+              Add to Favorites
+            </Button>
+          </div>
         </form>
       </Modal.Body>
-      <Modal.Footer></Modal.Footer>
     </Modal>
   );
 };
