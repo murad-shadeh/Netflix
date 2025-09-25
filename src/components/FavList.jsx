@@ -9,6 +9,7 @@ export default function FavList() {
   const [movies, setMovies] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
+
   useEffect(() => {
     const serverURL = `${import.meta.env.VITE_LOCAL_SERVER}/getMovies`;
     axios
@@ -20,8 +21,8 @@ export default function FavList() {
         console.log(error);
       });
   }, []);
+
   const handleDelete = (id) => {
-    console.log(id);
     const serverURL = `${import.meta.env.VITE_LOCAL_SERVER}/delete/${id}`;
     axios
       .delete(serverURL)
@@ -32,47 +33,54 @@ export default function FavList() {
         console.log(error);
       });
   };
+
   const handleUpdate = (movie) => {
     setSelectedMovie(movie);
     setShowModal(true);
   };
+
   const poster_pathURL = "http://image.tmdb.org/t/p/w500/";
+
   return (
     <>
       <NavBar />
-      <div>
-        <div className="row">
+      <div className="container mt-4 mb-4">
+        <div className="row g-4">
           {movies.map((movie) => (
-            <div className="col-md-4" key={movie.id}>
-              <Card style={{ marginBottom: "20px" }}>
+            <div className="col-md-4 d-flex" key={movie.id}>
+              <Card className="h-100 w-100 shadow-sm">
                 <Card.Img
                   variant="top"
                   src={poster_pathURL + movie.poster_path}
                 />
-                <Card.Body>
+                <Card.Body className="d-flex flex-column">
                   <Card.Title>{movie.title}</Card.Title>
-                  <Card.Text>
-                    <br />
+                  <Card.Text className="flex-grow-1">
                     {movie.overview}
                     <br />
-                    Comments: {movie.comments}
+                    <strong>Comments:</strong> {movie.comments}
                   </Card.Text>
-                  <Button
-                    variant="danger"
-                    onClick={() => handleDelete(movie.id)}
-                    className="me-2"
-                  >
-                    Delete
-                  </Button>
-                  <Button variant="primary" onClick={() => handleUpdate(movie)}>
-                    {" "}
-                    Update{" "}
-                  </Button>
+                  <div className="mt-auto">
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDelete(movie.id)}
+                      className="me-2"
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => handleUpdate(movie)}
+                    >
+                      Update
+                    </Button>
+                  </div>
                 </Card.Body>
               </Card>
             </div>
           ))}
         </div>
+
         {selectedMovie && (
           <ModalUpdate
             movie={selectedMovie}
