@@ -27,6 +27,10 @@ A **Netflix-inspired web application** where users can:
 
 ![Modal Screenshot](./screenshots/add-to-favourites.png)
 
+### Update Modal
+
+![Modal Screenshot](./screenshots/update-comment.png)
+
 ---
 
 ## 🚀 Tech Stack
