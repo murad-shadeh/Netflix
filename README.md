@@ -11,8 +11,6 @@ A **Netflix-inspired web application** where users can:
 
 👉 **Backend Repository:** [Movies Library (Node.js/Express API)](https://github.com/murad-shadeh/Movies-Library)
 
----
-
 ## 📸 Screenshots
 
 ### Home Page
@@ -31,12 +29,11 @@ A **Netflix-inspired web application** where users can:
 
 ![Modal Screenshot](./screenshots/update-comment.png)
 
----
-
 ## 🚀 Tech Stack
 
 **Frontend:**
 
+- HTML5, CSS, JavaScript (ES6)
 - React.js (with Vite)
 - React Router DOM
 - React Bootstrap + Bootstrap Utilities
@@ -56,8 +53,6 @@ A **Netflix-inspired web application** where users can:
 - VS Code
 - npm
 
----
-
 ## ⚡ Features
 
 ✔️ Browse latest movies from an API  
@@ -65,8 +60,6 @@ A **Netflix-inspired web application** where users can:
 ✔️ Comment on movies  
 ✔️ Update or delete favorites  
 ✔️ Responsive design for multiple devices
-
----
 
 ## 🛠️ Run Locally
 
@@ -83,8 +76,6 @@ npm install
 npm run dev
 
 ```
-
----
 
 # React + Vite
 
