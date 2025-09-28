@@ -9,7 +9,7 @@ A **Netflix-inspired web application** where users can:
 
 👉 **Live Demo:** [Netflix Clone](https://cloneofnetfliix.netlify.app/)
 
-👉 **Backend Repository:** [Movies Library (Node.js/Express API)](https://github.com/murad-shadeh/Movies-Library)
+👉 **Backend Repository:** [Movies Library (Node.js/Express.js)](https://github.com/murad-shadeh/Movies-Library)
 
 ## 📸 Screenshots
 
