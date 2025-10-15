@@ -3,6 +3,7 @@ import MovieList from "./MovieList";
 import axios from "axios";
 import { Container, Navbar, Row } from "react-bootstrap";
 import NavBar from "./NavBar";
+import Loader from "./Loader";
 const Home = () => {
   const [printingData, setPrinitngData] = useState([]);
   // const [singleMovie, setSingleMovie] = useState({});
@@ -26,6 +27,7 @@ const Home = () => {
       <NavBar />
       {/* maintain a fixed container */}
       <Container fluid className="mt-4">
+        {!printingData.length && <Loader />}
         <MovieList data={printingData} />
       </Container>
     </Fragment>
