@@ -15,7 +15,7 @@ A **Netflix-inspired web application** where users can:
 
 ### Home Page
 
-![Home Page Screenshot](./screenshots/home.png)
+![Home Page Screenshot](./screenshots/home-page.png)
 
 ### Favorites Page
 
