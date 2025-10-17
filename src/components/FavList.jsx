@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ModalUpdate from "./UpdateModal";
 import NavBar from "./NavBar";
+import Loader from "./Loader";
 
 export default function FavList() {
   const [movies, setMovies] = useState([]);
@@ -44,6 +45,7 @@ export default function FavList() {
   return (
     <>
       <NavBar />
+      {!movies.length && <Loader />}
       <div className="container mt-4 mb-4">
         <div className="row g-4">
           {movies.map((movie) => (
