@@ -1,32 +1,35 @@
-import axios from "axios";
+// import axios from "axios";// after context
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-
+import { useMovies } from "../contexts/MoviesContext";
 const ModalMovie = ({ show, data, handleClose }) => {
+  const { addMovie } = useMovies();
   // const handleClose = () => setShow(false)
   // console.log(handleClose);
   // console.log({ data });
   const img = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const comm = e.target.comment.value;
     console.log(comm);
-    const obj = {
-      title: data.title,
-      release_date: data.release_date,
-      poster_path: data.poster_path,
-      overview: data.overview,
-      comments: comm,
-    };
-    axios
-      .post(`${import.meta.env.VITE_LOCAL_SERVER}/addMovie`, obj)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    await addMovie(data, comm);
+    handleClose();
+    // const obj = {
+    //   title: data.title,
+    //   release_date: data.release_date,
+    //   poster_path: data.poster_path,
+    //   overview: data.overview,
+    //   comments: comm,
+    // };
+    // axios
+    //   .post(`${import.meta.env.VITE_LOCAL_SERVER}/addMovie`, obj)
+    //   .then((res) => console.log(res.data))
+    //   .catch((err) => console.log(err));
   };
 
-  const handleClick = () => {
-    handleClose();
-  };
+  // const handleClick = () => {
+  //   handleClose();
+  // };
   return (
     <Modal
       show={show}
@@ -61,7 +64,7 @@ const ModalMovie = ({ show, data, handleClose }) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClick} type="submit">
+            <Button variant="primary" type="submit">
               Add to Favorites
             </Button>
           </div>

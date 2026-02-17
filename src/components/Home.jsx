@@ -5,6 +5,7 @@ import { Container, Navbar, Row } from "react-bootstrap";
 import NavBar from "./NavBar";
 import Loader from "./Loader";
 const Home = () => {
+  // this state is only used here // no need for context api here.
   const [printingData, setPrinitngData] = useState([]);
   // const [singleMovie, setSingleMovie] = useState({});
   useEffect(() => {
@@ -13,7 +14,7 @@ const Home = () => {
   const fetchTrendingHandler = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_LOCAL_SERVER}/trending`
+        `${import.meta.env.VITE_LOCAL_SERVER}/trending`,
       );
       console.log(res.data.message);
       setPrinitngData(res.data.message);

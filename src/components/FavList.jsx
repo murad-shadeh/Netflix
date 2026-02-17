@@ -1,13 +1,16 @@
 import axios from "axios";
+// import { useEffect, useState } from "react"; before context
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ModalUpdate from "./UpdateModal";
 import NavBar from "./NavBar";
 import Loader from "./Loader";
+import { useMovies } from "../contexts/MoviesContext";
 
 export default function FavList() {
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);// before context
+  const { movies, setMovies, deleteMovie } = useMovies();
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -21,19 +24,7 @@ export default function FavList() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-
-  const handleDelete = (id) => {
-    const serverURL = `${import.meta.env.VITE_LOCAL_SERVER}/delete/${id}`;
-    axios
-      .delete(serverURL)
-      .then(() => {
-        setMovies((movies) => movies.filter((movie) => movie.id !== id));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  }, [setMovies]);
 
   const handleUpdate = (movie) => {
     setSelectedMovie(movie);
@@ -65,7 +56,7 @@ export default function FavList() {
                   <div className="mt-auto">
                     <Button
                       variant="danger"
-                      onClick={() => handleDelete(movie.id)}
+                      onClick={() => deleteMovie(movie.id)}
                       className="me-2"
                     >
                       Delete

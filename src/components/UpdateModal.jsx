@@ -1,32 +1,22 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import axios from "axios";
-import { useState } from "react";
+// import axios from "axios"; after context
+import { useState, useEffect } from "react";
+import { useMovies } from "../contexts/MoviesContext";
 function ModalUpdate(props) {
+  const { updateMovie } = useMovies();
   const [updatedComment, setUpdatedComment] = useState("");
-  const handleUpdate = () => {
-    const serverURL = `${import.meta.env.VITE_LOCAL_SERVER}/update/${
-      props.movie.id
-    }`;
-    const updatedMovieData = {
-      comments: updatedComment,
-    };
-    axios
-      .put(serverURL, updatedMovieData)
-      .then(() => {
-        const updatedMovie = { ...props.movie, comments: updatedComment };
-        props.setMovies((movies) => {
-          const updatedMovies = movies.map((movie) =>
-            movie.id === updatedMovie.id ? updatedMovie : movie
-          );
-          return updatedMovies;
-        });
-        props.setShowModal(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  // better ux keep the prev comment prefilled
+  // state only runs for first render, we used useEffect to update when we open on differnet movie
+  useEffect(() => {
+    if (props.movie) {
+      setUpdatedComment(props.movie.comments || "");
+    }
+  }, [props.movie]);
+  const handleUpdate = async () => {
+    await updateMovie(props.movie.id, updatedComment);
+    props.setShowModal(false);
   };
   const handleCloseModal = () => {
     props.setShowModal(false);

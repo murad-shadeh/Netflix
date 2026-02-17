@@ -15,8 +15,8 @@
 // export default MovieList;
 import { Row, Col } from "react-bootstrap";
 import Movie from "./Movie";
-
-const MovieList = ({ data, setSingleMovie }) => {
+// setSinglMovie is not used in the Movie so no need to pass it in props
+const MovieList = ({ data }) => {
   if (!data.length) return null; // render nothing if no movies
 
   return (
@@ -32,7 +32,7 @@ const MovieList = ({ data, setSingleMovie }) => {
           lg={3}
           className="d-flex justify-content-center mb-4"
         >
-          <Movie data={dataItem} setSingleMovie={setSingleMovie} onFav={true} />
+          <Movie data={dataItem} onFav={true} />
         </Col>
       ))}
     </Row>
