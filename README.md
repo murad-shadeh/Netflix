@@ -34,8 +34,9 @@ A **Netflix-inspired web application** where users can:
 **Frontend:**
 
 - HTML5, CSS, JavaScript (ES6)
-- React.js (with Vite)
-- React Router DOM
+- React.js (with VITE)
+- React Router
+- Context API
 - React Bootstrap + Bootstrap Utilities
 - Axios
 - React Hooks
@@ -57,8 +58,8 @@ A **Netflix-inspired web application** where users can:
 
 ✔️ Browse latest movies from an API  
 ✔️ Add movies to a favorites list  
-✔️ Comment on movies  
-✔️ Update or delete favorites  
+✔️ Leave your notes on movies  
+✔️ Update or delete movies  
 ✔️ Responsive design for multiple devices
 
 ## 🛠️ Run Locally
