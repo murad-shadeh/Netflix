@@ -66,7 +66,14 @@ const Movie = ({ data, onFav = false, onDelete, onUpdate }) => {
               <Button
                 variant="outline-danger"
                 size="sm"
-                onClick={() => onDelete?.(data.id)}
+                onClick={() => {
+                  const confirmed = window.confirm(
+                    "Are you sure you want to delete this movie?",
+                  );
+                  if (confirmed) {
+                    onDelete?.(data.id);
+                  }
+                }}
               >
                 Delete
               </Button>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { createContext, useContext, useState } from "react";
 
 // first step: create the context
@@ -26,8 +27,10 @@ export function MoviesProvider({ children }) {
       // update state after POST req
       // add on top only the new movie object of the array
       setMovies((prev) => [...prev, res.data.rows[0]]);
+      toast.success("Movie added to favorites 🎬");
     } catch (err) {
       console.log(err);
+      toast.error("Failed to add movie");
     }
   };
 
@@ -42,8 +45,10 @@ export function MoviesProvider({ children }) {
           movie.id === id ? { ...movie, comments: updatedComment } : movie,
         ),
       );
+      toast.success("Movie updated successfully");
     } catch (err) {
       console.log(err);
+      toast.error("Failed to update movie");
     }
   };
   const deleteMovie = async (id) => {
@@ -52,8 +57,10 @@ export function MoviesProvider({ children }) {
 
       // remove movie from global state after successful DELETE
       setMovies((prev) => prev.filter((movie) => movie.id !== id));
+      toast.success("Movie deleted successfully");
     } catch (err) {
       console.log(err);
+      toast.error("Failed to delete movie");
     }
   };
 
