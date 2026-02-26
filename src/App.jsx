@@ -6,7 +6,13 @@ import FavList from "./components/FavList";
 
 const App = () => {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundColor: "#141414",
+        minHeight: "100vh",
+      }}
+    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/fav" element={<FavList />} />

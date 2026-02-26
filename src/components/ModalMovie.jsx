@@ -35,36 +35,43 @@ const ModalMovie = ({ show, data, handleClose }) => {
       show={show}
       onHide={handleClose}
       centered
-      size="md" //  to be adjusted for later ... "sm", "md", "lg", or "xl"
-      dialogClassName="custom-modal"
+      size="md"
+      contentClassName="bg-dark text-light border-0"
     >
-      <Modal.Header closeButton>
-        <Modal.Title>{data.title}</Modal.Title>
+      <Modal.Header closeButton closeVariant="white" className="border-0">
+        <Modal.Title className="fw-bold">{data.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <img
           src={img}
           alt={data.title}
-          className="img-fluid mb-3 rounded"
+          className="img-fluid mb-4 rounded"
           style={{
-            maxHeight: "350px",
+            maxHeight: "400px",
             objectFit: "contain",
             width: "100%",
             backgroundColor: "#000",
+            borderRadius: "12px",
           }}
         />
         <form onSubmit={(e) => submitHandler(e)}>
           <div className="mb-3">
             <label htmlFor="comment" className="form-label">
-              Add a comment
+              Leave a note
             </label>
-            <input type="text" id="comment" className="form-control" required />
+            <input
+              type="text"
+              id="comment"
+              name="comment"
+              className="form-control bg-dark text-light border-secondary"
+              required
+            />
           </div>
-          <div className="d-flex justify-content-end gap-2">
-            <Button variant="secondary" onClick={handleClose}>
+          <div className="d-flex justify-content-end gap-2 mt-3">
+            <Button variant="outline-light" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" type="submit">
+            <Button variant="danger" type="submit">
               Add to Favorites
             </Button>
           </div>

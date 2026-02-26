@@ -5,12 +5,26 @@ import Navbar from "react-bootstrap/Navbar";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar
+      expand="lg"
+      variant="dark"
+      style={{
+        backgroundColor: "#141414",
+        paddingTop: "15px",
+        paddingBottom: "15px",
+        borderBottom: "2px solid #222",
+      }}
+    >
       <Container>
         <Navbar.Brand
           as={NavLink}
           to="/"
-          style={{ color: "darkred", fontSize: "30px" }}
+          style={{
+            color: "#e50914",
+            fontSize: "28px",
+            fontWeight: "bold",
+            letterSpacing: "1px",
+          }}
         >
           Netflix
         </Navbar.Brand>
@@ -23,8 +37,9 @@ const NavBar = () => {
               to="/"
               end
               style={({ isActive }) => ({
-                fontSize: "20px",
-                color: isActive ? "darkred" : "black",
+                fontSize: "18px",
+                color: isActive ? "#e50914" : "#ffffff",
+                marginRight: "20px",
               })}
             >
               Home
@@ -34,8 +49,8 @@ const NavBar = () => {
               as={NavLink}
               to="/fav"
               style={({ isActive }) => ({
-                fontSize: "20px",
-                color: isActive ? "darkred" : "black",
+                fontSize: "18px",
+                color: isActive ? "#e50914" : "#ffffff",
               })}
             >
               Favourites
